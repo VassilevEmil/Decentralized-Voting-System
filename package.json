@@ -1,0 +1,22 @@
+{
+  "name": "decentralized-voting-system",
+  "version": "1.0.0",
+  "description": "Voting system for DAO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VassilevEmil/Decentralized-Voting-System.git"
+  },
+  "author": "@VassilevEmil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VassilevEmil/Decentralized-Voting-System/issues"
+  },
+  "homepage": "https://github.com/VassilevEmil/Decentralized-Voting-System#readme",
+  "devDependencies": {
+    "hardhat": "^2.12.7"
+  }
+}
