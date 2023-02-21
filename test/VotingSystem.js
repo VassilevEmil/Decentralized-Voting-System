@@ -15,15 +15,15 @@ describe("VotingSystem", function () {
 
   it("should give right to vote and propose", async function () {
     await votingSystem.giveRightToVoteAndPropose(chairman.address);
-    const isChairmanVoter = await votingSystem.voters(chairman.address);
+    const isChairmanVoter = await votingSystem.voters(voter1.address);
     expect(isChairmanVoter).to.equal(true);
   });
 
   it("should submit proposal", async function () {
     await votingSystem.giveRightToVoteAndPropose(chairman.address);
     const proposalName = ethers.utils.formatBytes32String("Proposal 1");
-    await votingSystem.submitProposal(proposalName, chairman.address);
-    const proposals = await votingSystem.proposals(0);
+    await votingSystem.submitProposal(proposalName, voter1.address);
+    const proposals = await votingSystem.proposals(1);
     expect(proposals.proposalName).to.equal(proposalName);
   });
 

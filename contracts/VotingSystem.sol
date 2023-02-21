@@ -8,25 +8,19 @@ contract VotingSystem is Ownable {
 event submitProposalEvent(bytes32 proposalName, address _approved);
 event voteEvent(uint proposal);
 event winningProposalEvent(uint _winningProposal);
-
     
 uint private persentageNeededForProposalToPass = 75;
 address public chairman;
 
-
 struct Proposal {
-
     bytes32 name;
     uint16 voteCount;
-   
-    
 }
 
 struct Voter {
     bool voted;
     uint8 vote;
     uint16 voteWeight;
-    address personAddress;
     bool isApproved;
 }
 
@@ -36,22 +30,11 @@ mapping(address => Voter) public voters;
 mapping(address => bool) public eligibleToVoteAndPropose;
 mapping(address => uint16) public alreadyVoted;
 
-// constructor(bytes32[] memory  _proposalNames) {
-
-//     for(uint i=0; i<_proposalNames.length; i++) {
-//         proposals.push(Proposal({
-//             name: _proposalNames[i],
-//             voteCount: 0
-//         }));
-//     }
-
-// }
-
 function submitProposal(bytes32 _proposalName, address _approved) public {
 require(eligibleToVoteAndPropose[_approved],  "The proposer is not eligible to submit a proposal.");
 proposals.push(Proposal({
     name: _proposalName,
-    voteCount: 0
+    voteCount: 1
     }));
 emit submitProposalEvent(_proposalName, _approved);
 }
